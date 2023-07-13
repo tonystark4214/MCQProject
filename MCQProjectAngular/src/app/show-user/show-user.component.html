@@ -1,0 +1,22 @@
+<div class="container">
+    <table style="width:100%" border="1px" class="mt-5 mb-5">
+        <tr>
+            <th>S.No.</th>
+            <th>Name</th>
+            <th>Total Questions</th>
+            <th>Attempted Questions</th>
+            <th>Correct Answers</th>
+            <th>Grand Total</th>
+            <th>Submission Date</th>
+        </tr>
+        <tr *ngFor="let el of userList">
+            <td>{{el.id}}</td>
+            <td>{{el.userName}}</td>
+            <td>{{el.totalQ}}</td>
+            <td>{{el.qattempted}}</td>
+            <td>{{el.correctQ}}</td>
+            <td>{{((el.correctQ*100)/el.totalQ) | number:'1.0-0'}}</td>
+            <td>{{el.submissionDate | date}}</td>
+        </tr>
+    </table>
+</div>

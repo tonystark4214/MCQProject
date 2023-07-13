@@ -1,0 +1,92 @@
+<div class="container border mt-5 mb-5">
+    <div class="col-md-4 container">
+        <h2>Add New Question</h2>
+        <form [formGroup]="PostForm" (ngSubmit)="PostQuestion(PostForm.value)">
+            
+            <!--question-->
+
+            <div class="mb-3">
+                <label class="form-label">Question</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="question" required></textarea>
+                <span *ngIf="PostForm.controls['question'].touched && PostForm.controls['question'].invalid"
+                    class="error">
+                    Please enter Question
+                </span>
+
+                <div *ngIf="PostForm.get('question').hasError('minlength') || PostForm.get('question').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 2-500 chars
+                </div>
+            </div>
+
+            <!--answer-->
+
+            <div class="mb-3">
+                <label class="form-label">Answer</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="answer" required></textarea>
+                <span *ngIf="PostForm.controls['answer'].touched && PostForm.controls['answer'].invalid"
+                    class="error">
+                    Please enter Answer
+                </span>
+
+                <div *ngIf="PostForm.get('answer').hasError('minlength') || PostForm.get('answer').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 1-500 chars
+                </div>
+            </div>
+            
+            <!--options-->
+
+            <div class="mb-3">
+                <label class="form-label">Option 1</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="option1" required></textarea>
+                <span *ngIf="PostForm.controls['option1'].touched && PostForm.controls['option1'].invalid"
+                    class="error">
+                    Please enter option1
+                </span>
+
+                <div *ngIf="PostForm.get('option1').hasError('minlength') || PostForm.get('option1').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 1-500 chars
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Option 2</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="option2" required></textarea>
+                <span *ngIf="PostForm.controls['option2'].touched && PostForm.controls['option2'].invalid"
+                    class="error">
+                    Please enter Option2
+                </span>
+
+                <div *ngIf="PostForm.get('option2').hasError('minlength') || PostForm.get('option2').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 1-500 chars
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Option 3</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="option3" required></textarea>
+                <span *ngIf="PostForm.controls['option3'].touched && PostForm.controls['option3'].invalid"
+                    class="error">
+                    Please enter Option3
+                </span>
+
+                <div *ngIf="PostForm.get('option3').hasError('minlength') || PostForm.get('option3').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 1-500 chars
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label class="form-label">Option 4</label><span class="required">*</span>
+                <textarea class="form-control" formControlName="option4" required></textarea>
+                <span *ngIf="PostForm.controls['option4'].touched && PostForm.controls['option4'].invalid"
+                    class="error">
+                    Please enter Option4
+                </span>
+
+                <div *ngIf="PostForm.get('option4').hasError('minlength') || PostForm.get('option4').hasError('maxlength')" class='alert alert-danger'>
+                    Please enter 1-500 chars
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary mb-3" [disabled]="!PostForm.valid">Save</button>
+        </form>
+    </div>
+</div>

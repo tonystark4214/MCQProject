@@ -1,0 +1,71 @@
+<div class="container border mt-5" *ngIf="IsInput">
+    <label class="mt-2">Enter Username : </label>
+    <form class="d-flex" role="search">
+        <input class="form-control mt-2 mb-3" type="search" placeholder="Search" aria-label="Search" style="width:200px"
+            name="username" [(ngModel)]="userName">
+        <button class="btn btn-primary mt-2 mb-3 mx-2" type="button" (click)="StartTest()">Start Test</button>
+    </form>
+</div>
+
+<div class="container questionContainer mt-3" *ngIf="questionContainer">
+    <div *ngFor="let el of questionData; let rowIndex = index" class="mt-3 border">
+        <div class="question form-check" style="width:80%">
+            <font>Question {{(counter+rowIndex)}} : </font>{{el.question}}
+        </div>
+        <div class="options mt-2 mb-2">
+            <ul ngFor="opt of el.options">
+                <li>
+                    <div class="form-check border mb-2" id="option1{{rowIndex}}">
+                        <input class="form-check-input" type="radio" 
+                        (change)="handleChange($event,rowIndex)" value="{{el.option}}" 
+                        name="flexRadioDefault" id="1{{rowIndex}}">
+                        <label class="form-check-label" for="1{{rowIndex}}">
+                            {{el.option1}}
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check border mb-2" id="option2{{rowIndex}}">
+                        <input class="form-check-input" type="radio" (change)="handleChange($event,rowIndex)" value="{{el.option2}}" name="flexRadioDefault" id="2{{rowIndex}}">
+                        <label class="form-check-label" for="2{{rowIndex}}">
+                            {{el.option2}}
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check border mb-2" id="option3{{rowIndex}}">
+                        <input class="form-check-input" type="radio" (change)="handleChange($event,rowIndex)" value="{{el.option3}}" name="flexRadioDefault" id="3{{rowIndex}}">
+                        <label class="form-check-label" for="3{{rowIndex}}">
+                            {{el.option3}}
+                        </label>
+                    </div>
+                </li>
+                <li>
+                    <div class="form-check border mb-2" id="option4{{rowIndex}}">
+                        <input class="form-check-input" type="radio" (change)="handleChange($event,rowIndex)" value="{{el.option4}}" name="flexRadioDefault" id="4{{rowIndex}}">
+                        <label class="form-check-label" for="4{{rowIndex}}">
+                            {{el.option4}}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn-primary mt-2 mb-3 mx-2" type="submit" (click)="Submit()">Submit</button>
+    </div>
+</div>
+<div class="container result border mt-5" *ngIf="IsResult">
+    <div>
+        <h2>Congratulations {{userName}}, You've Completed the test. </h2>
+        <div class="resultData border">
+            <h3>Your Result</h3><br>
+            <h4>Total Questions : {{questionData.length}}</h4>
+            <h4>Total Question Attempted : {{qAttempted}}</h4>
+            <h4>Correct Answers : {{Marks}}</h4>
+
+            <p style="font-weight: 500;">Grand Total : <font style="color:green;font-weight: 500;">{{GrandTotal}}%</font></p>
+        </div>
+    </div>
+    <button class="btn btn-primary mt-2 mb-3 mx-2" type="button" (click)="CloseResult()">Close</button>
+</div>

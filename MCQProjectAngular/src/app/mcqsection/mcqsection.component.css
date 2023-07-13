@@ -1,0 +1,26 @@
+font{
+    font-weight: 500;
+}
+li{
+    list-style-type: none;
+}
+.form-check{
+    height:30px;
+    width:80%;
+    border-radius: 5px;
+}
+.green{
+    background-color: rgb(78, 224, 78);
+    transition: 0.5s;
+}
+.red{
+    background-color: rgb(241, 100, 100);
+    
+    animation-name: shake;
+    animation-iteration-count: 1;
+    animation-duration: 300ms;
+}
+@keyframes shake {
+    from {background-color:white;margin-top: 10px; scale:1;}
+    to {background-color:rgb(241, 100, 100);margin-top: 0px; scale:1.1;}
+  }
